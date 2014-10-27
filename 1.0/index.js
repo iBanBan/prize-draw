@@ -156,7 +156,7 @@ KISSY.add(function (S, Node, Base) {
         startDraw: function () {
             var people = this.people,
                 change = this.change;
-            var luckyArr=localStorage.getItem('luckyArr');
+            var luckyArr=JSON.parse(localStorage.getItem('luckyArr'));
             if(luckyArr){
                 for(var k= 0;k<luckyArr.length;k++){
                     for (var i = 0, len = people.length; i < len; i++) {
@@ -178,7 +178,8 @@ KISSY.add(function (S, Node, Base) {
             clearInterval(timer);
             var luckyone=localStorage.getItem('luckyOne');
             luckyArr.push(luckyone);
-            localStorage.setItem('luckyArr',luckyArr);
+            //localStorage.setItem('luckyArr',luckyArr);
+            localStorage.setItem('luckyArr',JSON.stringify(luckyArr));
             this.showResult();
         },
 
